@@ -9,12 +9,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Должен быть один объект на все приложение, чтобы не плодить много фоновых процессов
  */
-public class NetworkService { //todo Превратить в синглтон
+public class NetworkService {
+    private static NetworkService INSTANCE;
     private static final String URL = "localhost";
     private Retrofit retrofit;
     public AuthService authService;
 
-    public NetworkService() {
+    private NetworkService() {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -26,5 +27,12 @@ public class NetworkService { //todo Превратить в синглтон
                 .build();
 
         authService = retrofit.create(AuthService.class);
+    }
+
+    public static synchronized NetworkService getRestAdapter() {
+        if(INSTANCE == null) {
+            INSTANCE = new NetworkService();
+        }
+        return INSTANCE;
     }
 }
