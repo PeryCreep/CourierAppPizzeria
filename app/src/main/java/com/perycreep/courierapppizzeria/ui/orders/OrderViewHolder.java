@@ -10,12 +10,12 @@ import com.perycreep.courierapppizzeria.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder {
 
-    TextView numOrder, addressOrder;
+    TextView totalOrder, addressOrder, totalSumm;
 
     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
-        numOrder = itemView.findViewById(R.id.numOrder);
+        totalOrder = itemView.findViewById(R.id.totalOrder);
         addressOrder = itemView.findViewById(R.id.addressOrder);
-
+        totalSumm = itemView.findViewById(R.id.totalSumm);
     }
 }

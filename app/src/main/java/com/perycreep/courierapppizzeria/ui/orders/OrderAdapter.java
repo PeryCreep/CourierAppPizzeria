@@ -30,8 +30,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-        holder.numOrder.setText("Заказ №" + items.get(position).getNumder());
-        holder.addressOrder.setText(items.get(position).getAddress());
+        holder.addressOrder.setText("Адрес: " + items.get(position).getAddress());
+        holder.totalOrder.setText(items.get(position).getTotalOrder());
+        holder.totalSumm.setText(items.get(position).getTotalSumm() + " ₽");
+
 
     }
 
