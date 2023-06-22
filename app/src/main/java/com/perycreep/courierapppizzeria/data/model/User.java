@@ -3,17 +3,17 @@ package com.perycreep.courierapppizzeria.data.model;
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
  */
-public class LoggedInUser {
+public class User {
 
-    private String userId;
+    private Long userId;
     private String displayName;
 
-    public LoggedInUser(String userId, String displayName) {
+    public User(Long userId, String displayName) {
         this.userId = userId;
         this.displayName = displayName;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
