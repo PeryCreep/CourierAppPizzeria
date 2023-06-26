@@ -5,6 +5,7 @@ package com.perycreep.courierapppizzeria.data.model;
  */
 public class User {
 
+    private int age;
     private Long userId;
     private String displayName;
 
