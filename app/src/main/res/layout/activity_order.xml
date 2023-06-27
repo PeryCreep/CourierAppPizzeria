@@ -3,19 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="386dp"
-        android:layout_height="654dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:background="#E8D7FF"
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:background="#4BFFFFFF"
+        android:contentDescription="@string/todo"
+        android:src="@mipmap/icon_account"
+        android:text="@string/r"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/btnActive"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/todo"
+        android:src="@mipmap/icon_delivery"
+        android:text="@string/d"
+        app:layout_constraintEnd_toStartOf="@+id/btnProfile"
+        app:layout_constraintStart_toEndOf="@+id/btnHistory"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/btnHistory"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="12dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/todo"
+        android:src="@mipmap/icon_history"
+        android:text="@string/a"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/recyclerview"/>
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

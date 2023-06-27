@@ -1,10 +1,18 @@
 package com.perycreep.courierapppizzeria.ui.orders;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,23 +25,33 @@ import java.util.List;
 
 public class OrderActivity extends AppCompatActivity {
     private ActivityOrderBinding binding;
+    ImageButton btnHistory, btnActive, btnProfile;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        binding = ActivityOrderBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_order);
 
-        List<OrderItem> items = new ArrayList<>();
-        items.add(new OrderItem("Разумов Алексей Антонович", "Bibl 45", 1400d, true, "Pepperoni"));
-        items.add(new OrderItem("Polyakov Artem", "Mira 20", 2200d, true, "4 cheese"));
-        items.add(new OrderItem("Pupkin Vasya", "Ermaka 35", 800d, true, "Stolovskaya"));
+        btnHistory = findViewById(R.id.btnHistory);
+        btnActive = findViewById(R.id.btnActive);
+        btnProfile = findViewById(R.id.btnProfile);
 
+        btnHistory.setOnClickListener(view -> replaceFragment( new MainFragment()));
+        btnActive.setOnClickListener(view -> replaceFragment( new BlankFragment()));
+        btnProfile.setOnClickListener(view -> replaceFragment( new ProfileFragment()));
 
+//        binding = ActivityOrderBinding.inflate(getLayoutInflater());
+//        setContentView(binding.getRoot());
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new OrderAdapter(getApplicationContext(),items));
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout,fragment);
+        fragmentTransaction.commit();
     }
 }
