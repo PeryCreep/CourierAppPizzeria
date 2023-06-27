@@ -6,25 +6,32 @@
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:id="@+id/addressOrder"
-        android:text="8 Marta 62"/>
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="8 Marta 62"
         android:textColor="@color/black"
+        android:fontFamily="Montserrat"
+        android:textSize="20sp" />
+
+    <TextView
         android:id="@+id/totalOrder"
-        android:text="Pepperoni"
-        android:layout_below="@id/addressOrder"/>
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/addressOrder"
+        android:text="Pepperoni"
         android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
         android:id="@+id/totalSumm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/totalOrder"
         android:text="2000"
-        android:layout_below="@id/totalOrder"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
