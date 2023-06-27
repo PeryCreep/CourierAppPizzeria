@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderActivity extends AppCompatActivity {
-    private ActivityOrderBinding binding;
     ImageButton btnHistory, btnActive, btnProfile;
 
     @SuppressLint("MissingInflatedId")
@@ -43,8 +42,6 @@ public class OrderActivity extends AppCompatActivity {
         btnActive.setOnClickListener(view -> replaceFragment( new BlankFragment()));
         btnProfile.setOnClickListener(view -> replaceFragment( new ProfileFragment()));
 
-//        binding = ActivityOrderBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
 
     }
 
